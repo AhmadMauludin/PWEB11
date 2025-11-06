@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Riwayat</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Hubungkan file CSS eksternal -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h2>Shelyna Siti Solihhah</h2>
+</header>
+
+<section>
+  <nav>
+<center>
+    <form action="index.html" style="display:inline;">
+      <button type="submit">Data Diri</button>
+    </form>
+    <form action="riwayat.html" style="display:inline;">
+      <button type="submit">Riwayat</button>
+    </form>
+    <form action="galeri.html" style="display:inline;">
+      <button type="submit">Galeri Foto</button>
+    </form>
+    <form action="komentar.html" style="display:inline;">
+      <button type="submit">Komentar</button>
+    </form>
+  </center>
+  </nav>
+  
+  <article>
+    <div class="container">
+<div class="card">
+<h2>Kirim Komentar</h2>
+
+  <form id="formKomentar">
+    <table>
+      <tr>
+        <th><label for="nama">Nama</label></th>
+        <td>:</td>
+        <td><input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required></td>
+      </tr>
+      <tr>
+        <th><label for="email">Email</label></th>
+        <td>:</td>
+        <td><input type="email" id="email" name="email" placeholder="Masukkan email Anda" required></td>
+      </tr>
+      <tr>
+        <th><label for="pesan">Pesan</label></th>
+        <td>:</td>
+        <td><textarea id="pesan" name="pesan" rows="5" cols="40" placeholder="Tulis pesan Anda di sini..." required></textarea></td>
+      </tr>
+      <tr>
+        <td colspan="3" style="text-align: right;">
+          <button type="submit">Kirim</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+
+  <h3>Daftar Komentar</h3>
+  <div id="daftarKomentar">
+    <p>Belum ada komentar.</p>
+  </div>
+
+  <script>
+    const form = document.getElementById('formKomentar');
+    const daftar = document.getElementById('daftarKomentar');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // mencegah reload halaman
+
+      const nama = document.getElementById('nama').value;
+      const email = document.getElementById('email').value;
+      const pesan = document.getElementById('pesan').value;
+
+      // membuat elemen komentar baru
+      const komentarBaru = document.createElement('div');
+      komentarBaru.innerHTML = "<p><b>" + nama + "</b> (" + email + ")<br>" + pesan + "</p><hr>";
+
+      // menambahkan ke daftar komentar
+      if (daftar.innerHTML.includes("Belum ada komentar")) {
+        daftar.innerHTML = "";
+      }
+      daftar.appendChild(komentarBaru);
+
+      // reset form
+      form.reset();
+    });
+  </script>
+</div>
+</div>
+  </article>
+</section>
+
+<footer>
+  <p>2025 @shelyna</p>
+</footer>
+
+</body>
+</html>
